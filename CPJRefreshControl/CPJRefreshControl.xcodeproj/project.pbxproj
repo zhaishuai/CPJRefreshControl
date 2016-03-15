@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D99D6BAD1C9846F0001F0D3F /* CPJNomalRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D6BAC1C9846F0001F0D3F /* CPJNomalRefreshControl.m */; };
+		D99D6BB01C9849DA001F0D3F /* LPRefreshIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D6BAF1C9849DA001F0D3F /* LPRefreshIndicator.m */; };
 		D9FAEAF01C9808FB00142672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEAEF1C9808FB00142672 /* main.m */; };
 		D9FAEAF31C9808FB00142672 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEAF21C9808FB00142672 /* AppDelegate.m */; };
 		D9FAEAF91C9808FB00142672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FAEAF71C9808FB00142672 /* Main.storyboard */; };
@@ -37,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D99D6BAB1C9846F0001F0D3F /* CPJNomalRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJNomalRefreshControl.h; sourceTree = "<group>"; };
+		D99D6BAC1C9846F0001F0D3F /* CPJNomalRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJNomalRefreshControl.m; sourceTree = "<group>"; };
+		D99D6BAE1C9849DA001F0D3F /* LPRefreshIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPRefreshIndicator.h; sourceTree = "<group>"; };
+		D99D6BAF1C9849DA001F0D3F /* LPRefreshIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPRefreshIndicator.m; sourceTree = "<group>"; };
 		D9FAEAEB1C9808FB00142672 /* CPJRefreshControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPJRefreshControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FAEAEF1C9808FB00142672 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D9FAEAF11C9808FB00142672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +89,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D99D6BAA1C9846F0001F0D3F /* CPJNomalRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				D99D6BAE1C9849DA001F0D3F /* LPRefreshIndicator.h */,
+				D99D6BAF1C9849DA001F0D3F /* LPRefreshIndicator.m */,
+				D99D6BAB1C9846F0001F0D3F /* CPJNomalRefreshControl.h */,
+				D99D6BAC1C9846F0001F0D3F /* CPJNomalRefreshControl.m */,
+			);
+			path = CPJNomalRefreshControl;
+			sourceTree = "<group>";
+		};
 		D9FAEAE21C9808FB00142672 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +167,7 @@
 		D9FAEB271C980A3100142672 /* CPJRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
+				D99D6BAA1C9846F0001F0D3F /* CPJNomalRefreshControl */,
 				D9FAEB281C980A8900142672 /* CPJRefreshControl.h */,
 				D9FAEB291C980A8900142672 /* CPJRefreshControl.m */,
 			);
@@ -288,9 +306,11 @@
 			files = (
 				D9FAEAF31C9808FB00142672 /* AppDelegate.m in Sources */,
 				D9FAEAF01C9808FB00142672 /* main.m in Sources */,
+				D99D6BB01C9849DA001F0D3F /* LPRefreshIndicator.m in Sources */,
 				D9FAEAFC1C9808FB00142672 /* CPJRefreshControl.xcdatamodeld in Sources */,
 				D9FAEB2A1C980A8900142672 /* CPJRefreshControl.m in Sources */,
 				D9FAEB261C980A0C00142672 /* TableViewController.m in Sources */,
+				D99D6BAD1C9846F0001F0D3F /* CPJNomalRefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +536,7 @@
 				D9FAEB1D1C9808FB00142672 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9FAEB1E1C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControlTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +545,7 @@
 				D9FAEB201C9808FB00142672 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9FAEB211C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControlUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +554,7 @@
 				D9FAEB231C9808FB00142672 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -7,7 +7,7 @@
 //
 
 #import "TableViewController.h"
-#import "CPJRefreshControl.h"
+#import "CPJNomalRefreshControl.h"
 
 @interface TableViewController ()
 
@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIRefreshControl *refresh = [[CPJRefreshControl alloc] init];
+    UIRefreshControl *refresh = [[CPJNomalRefreshControl alloc] init];
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
     self.refreshControl = refresh;
     [refresh addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];

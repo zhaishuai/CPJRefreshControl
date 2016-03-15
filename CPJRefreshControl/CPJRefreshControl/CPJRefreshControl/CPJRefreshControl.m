@@ -10,8 +10,6 @@
 
 @interface CPJRefreshControl ()
 
-@property (nonatomic, strong)UIView *contentView;
-
 @end
 
 @implementation CPJRefreshControl
@@ -20,9 +18,9 @@
     if(self = [super init]){
         [self addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
         self.contentView = [[UIView alloc] init];
-        self.contentView.backgroundColor = [UIColor redColor];
+        self.contentView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.contentView];
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
