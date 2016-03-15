@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9FAEAF01C9808FB00142672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEAEF1C9808FB00142672 /* main.m */; };
+		D9FAEAF31C9808FB00142672 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEAF21C9808FB00142672 /* AppDelegate.m */; };
+		D9FAEAF91C9808FB00142672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FAEAF71C9808FB00142672 /* Main.storyboard */; };
+		D9FAEAFC1C9808FB00142672 /* CPJRefreshControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEAFA1C9808FB00142672 /* CPJRefreshControl.xcdatamodeld */; };
+		D9FAEAFE1C9808FB00142672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FAEAFD1C9808FB00142672 /* Assets.xcassets */; };
+		D9FAEB011C9808FB00142672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FAEAFF1C9808FB00142672 /* LaunchScreen.storyboard */; };
+		D9FAEB0C1C9808FB00142672 /* CPJRefreshControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB0B1C9808FB00142672 /* CPJRefreshControlTests.m */; };
+		D9FAEB171C9808FB00142672 /* CPJRefreshControlUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB161C9808FB00142672 /* CPJRefreshControlUITests.m */; };
+		D9FAEB261C980A0C00142672 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB251C980A0C00142672 /* TableViewController.m */; };
+		D9FAEB2A1C980A8900142672 /* CPJRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB291C980A8900142672 /* CPJRefreshControl.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9FAEB081C9808FB00142672 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9FAEAE31C9808FB00142672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9FAEAEA1C9808FB00142672;
+			remoteInfo = CPJRefreshControl;
+		};
+		D9FAEB131C9808FB00142672 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9FAEAE31C9808FB00142672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9FAEAEA1C9808FB00142672;
+			remoteInfo = CPJRefreshControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D9FAEAEB1C9808FB00142672 /* CPJRefreshControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPJRefreshControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FAEAEF1C9808FB00142672 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D9FAEAF11C9808FB00142672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D9FAEAF21C9808FB00142672 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D9FAEAF81C9808FB00142672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9FAEAFB1C9808FB00142672 /* CPJRefreshControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CPJRefreshControl.xcdatamodel; sourceTree = "<group>"; };
+		D9FAEAFD1C9808FB00142672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9FAEB001C9808FB00142672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9FAEB021C9808FB00142672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9FAEB071C9808FB00142672 /* CPJRefreshControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPJRefreshControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FAEB0B1C9808FB00142672 /* CPJRefreshControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPJRefreshControlTests.m; sourceTree = "<group>"; };
+		D9FAEB0D1C9808FB00142672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9FAEB121C9808FB00142672 /* CPJRefreshControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPJRefreshControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FAEB161C9808FB00142672 /* CPJRefreshControlUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPJRefreshControlUITests.m; sourceTree = "<group>"; };
+		D9FAEB181C9808FB00142672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9FAEB241C980A0C00142672 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = ../TableViewController.h; sourceTree = "<group>"; };
+		D9FAEB251C980A0C00142672 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
+		D9FAEB281C980A8900142672 /* CPJRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJRefreshControl.h; sourceTree = "<group>"; };
+		D9FAEB291C980A8900142672 /* CPJRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJRefreshControl.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9FAEAE81C9808FB00142672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FAEB041C9808FB00142672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FAEB0F1C9808FB00142672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9FAEAE21C9808FB00142672 = {
+			isa = PBXGroup;
+			children = (
+				D9FAEAED1C9808FB00142672 /* CPJRefreshControl */,
+				D9FAEB0A1C9808FB00142672 /* CPJRefreshControlTests */,
+				D9FAEB151C9808FB00142672 /* CPJRefreshControlUITests */,
+				D9FAEAEC1C9808FB00142672 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9FAEAEC1C9808FB00142672 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9FAEAEB1C9808FB00142672 /* CPJRefreshControl.app */,
+				D9FAEB071C9808FB00142672 /* CPJRefreshControlTests.xctest */,
+				D9FAEB121C9808FB00142672 /* CPJRefreshControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9FAEAED1C9808FB00142672 /* CPJRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				D9FAEB271C980A3100142672 /* CPJRefreshControl */,
+				D9FAEAF11C9808FB00142672 /* AppDelegate.h */,
+				D9FAEAF21C9808FB00142672 /* AppDelegate.m */,
+				D9FAEB241C980A0C00142672 /* TableViewController.h */,
+				D9FAEB251C980A0C00142672 /* TableViewController.m */,
+				D9FAEAF71C9808FB00142672 /* Main.storyboard */,
+				D9FAEAFD1C9808FB00142672 /* Assets.xcassets */,
+				D9FAEAFF1C9808FB00142672 /* LaunchScreen.storyboard */,
+				D9FAEB021C9808FB00142672 /* Info.plist */,
+				D9FAEAFA1C9808FB00142672 /* CPJRefreshControl.xcdatamodeld */,
+				D9FAEAEE1C9808FB00142672 /* Supporting Files */,
+			);
+			path = CPJRefreshControl;
+			sourceTree = "<group>";
+		};
+		D9FAEAEE1C9808FB00142672 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9FAEAEF1C9808FB00142672 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9FAEB0A1C9808FB00142672 /* CPJRefreshControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9FAEB0B1C9808FB00142672 /* CPJRefreshControlTests.m */,
+				D9FAEB0D1C9808FB00142672 /* Info.plist */,
+			);
+			path = CPJRefreshControlTests;
+			sourceTree = "<group>";
+		};
+		D9FAEB151C9808FB00142672 /* CPJRefreshControlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D9FAEB161C9808FB00142672 /* CPJRefreshControlUITests.m */,
+				D9FAEB181C9808FB00142672 /* Info.plist */,
+			);
+			path = CPJRefreshControlUITests;
+			sourceTree = "<group>";
+		};
+		D9FAEB271C980A3100142672 /* CPJRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				D9FAEB281C980A8900142672 /* CPJRefreshControl.h */,
+				D9FAEB291C980A8900142672 /* CPJRefreshControl.m */,
+			);
+			path = CPJRefreshControl;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9FAEAEA1C9808FB00142672 /* CPJRefreshControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9FAEB1B1C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControl" */;
+			buildPhases = (
+				D9FAEAE71C9808FB00142672 /* Sources */,
+				D9FAEAE81C9808FB00142672 /* Frameworks */,
+				D9FAEAE91C9808FB00142672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CPJRefreshControl;
+			productName = CPJRefreshControl;
+			productReference = D9FAEAEB1C9808FB00142672 /* CPJRefreshControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9FAEB061C9808FB00142672 /* CPJRefreshControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9FAEB1E1C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControlTests" */;
+			buildPhases = (
+				D9FAEB031C9808FB00142672 /* Sources */,
+				D9FAEB041C9808FB00142672 /* Frameworks */,
+				D9FAEB051C9808FB00142672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9FAEB091C9808FB00142672 /* PBXTargetDependency */,
+			);
+			name = CPJRefreshControlTests;
+			productName = CPJRefreshControlTests;
+			productReference = D9FAEB071C9808FB00142672 /* CPJRefreshControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D9FAEB111C9808FB00142672 /* CPJRefreshControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9FAEB211C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControlUITests" */;
+			buildPhases = (
+				D9FAEB0E1C9808FB00142672 /* Sources */,
+				D9FAEB0F1C9808FB00142672 /* Frameworks */,
+				D9FAEB101C9808FB00142672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9FAEB141C9808FB00142672 /* PBXTargetDependency */,
+			);
+			name = CPJRefreshControlUITests;
+			productName = CPJRefreshControlUITests;
+			productReference = D9FAEB121C9808FB00142672 /* CPJRefreshControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9FAEAE31C9808FB00142672 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = cpj;
+				TargetAttributes = {
+					D9FAEAEA1C9808FB00142672 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					D9FAEB061C9808FB00142672 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = D9FAEAEA1C9808FB00142672;
+					};
+					D9FAEB111C9808FB00142672 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = D9FAEAEA1C9808FB00142672;
+					};
+				};
+			};
+			buildConfigurationList = D9FAEAE61C9808FB00142672 /* Build configuration list for PBXProject "CPJRefreshControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9FAEAE21C9808FB00142672;
+			productRefGroup = D9FAEAEC1C9808FB00142672 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9FAEAEA1C9808FB00142672 /* CPJRefreshControl */,
+				D9FAEB061C9808FB00142672 /* CPJRefreshControlTests */,
+				D9FAEB111C9808FB00142672 /* CPJRefreshControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9FAEAE91C9808FB00142672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FAEB011C9808FB00142672 /* LaunchScreen.storyboard in Resources */,
+				D9FAEAFE1C9808FB00142672 /* Assets.xcassets in Resources */,
+				D9FAEAF91C9808FB00142672 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FAEB051C9808FB00142672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FAEB101C9808FB00142672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9FAEAE71C9808FB00142672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FAEAF31C9808FB00142672 /* AppDelegate.m in Sources */,
+				D9FAEAF01C9808FB00142672 /* main.m in Sources */,
+				D9FAEAFC1C9808FB00142672 /* CPJRefreshControl.xcdatamodeld in Sources */,
+				D9FAEB2A1C980A8900142672 /* CPJRefreshControl.m in Sources */,
+				D9FAEB261C980A0C00142672 /* TableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FAEB031C9808FB00142672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FAEB0C1C9808FB00142672 /* CPJRefreshControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FAEB0E1C9808FB00142672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FAEB171C9808FB00142672 /* CPJRefreshControlUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9FAEB091C9808FB00142672 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9FAEAEA1C9808FB00142672 /* CPJRefreshControl */;
+			targetProxy = D9FAEB081C9808FB00142672 /* PBXContainerItemProxy */;
+		};
+		D9FAEB141C9808FB00142672 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9FAEAEA1C9808FB00142672 /* CPJRefreshControl */;
+			targetProxy = D9FAEB131C9808FB00142672 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9FAEAF71C9808FB00142672 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9FAEAF81C9808FB00142672 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9FAEAFF1C9808FB00142672 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9FAEB001C9808FB00142672 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9FAEB191C9808FB00142672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9FAEB1A1C9808FB00142672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9FAEB1C1C9808FB00142672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CPJRefreshControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJRefreshControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D9FAEB1D1C9808FB00142672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CPJRefreshControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJRefreshControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D9FAEB1F1C9808FB00142672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CPJRefreshControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJRefreshControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CPJRefreshControl.app/CPJRefreshControl";
+			};
+			name = Debug;
+		};
+		D9FAEB201C9808FB00142672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CPJRefreshControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJRefreshControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CPJRefreshControl.app/CPJRefreshControl";
+			};
+			name = Release;
+		};
+		D9FAEB221C9808FB00142672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CPJRefreshControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJRefreshControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CPJRefreshControl;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D9FAEB231C9808FB00142672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CPJRefreshControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJRefreshControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CPJRefreshControl;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9FAEAE61C9808FB00142672 /* Build configuration list for PBXProject "CPJRefreshControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FAEB191C9808FB00142672 /* Debug */,
+				D9FAEB1A1C9808FB00142672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9FAEB1B1C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FAEB1C1C9808FB00142672 /* Debug */,
+				D9FAEB1D1C9808FB00142672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D9FAEB1E1C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FAEB1F1C9808FB00142672 /* Debug */,
+				D9FAEB201C9808FB00142672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D9FAEB211C9808FB00142672 /* Build configuration list for PBXNativeTarget "CPJRefreshControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FAEB221C9808FB00142672 /* Debug */,
+				D9FAEB231C9808FB00142672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9FAEAFA1C9808FB00142672 /* CPJRefreshControl.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9FAEAFB1C9808FB00142672 /* CPJRefreshControl.xcdatamodel */,
+			);
+			currentVersion = D9FAEAFB1C9808FB00142672 /* CPJRefreshControl.xcdatamodel */;
+			path = CPJRefreshControl.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D9FAEAE31C9808FB00142672 /* Project object */;
+}
