@@ -10,6 +10,7 @@
 
 @interface CPJRefreshControl ()
 
+@property (nonatomic, strong)UIView *contentView;
 
 @end
 
@@ -18,7 +19,10 @@
 - (instancetype)init{
     if(self = [super init]){
         [self addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
-    
+        self.contentView = [[UIView alloc] init];
+        self.contentView.backgroundColor = [UIColor redColor];
+        [self addSubview:self.contentView];
+        self.backgroundColor = [UIColor greenColor];
     }
     return self;
 }
@@ -31,11 +35,8 @@
         _controlSate = CPJRefreshControlReleasing;
     }
     
-    //    NSLog(@"%f  %f", frame.origin.y, self.frame.origin.y);
-    
     [super setFrame:frame];
-
-    
+    self.contentView.frame = CGRectMake(frame.origin.x, 0, frame.size.width,  - frame.origin.y);
     [self movingDistance:-frame.origin.y];
 }
 
