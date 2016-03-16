@@ -30,9 +30,7 @@
 - (instancetype)init{
     if(self = [super init]){
         self.indicator = [LPRefreshIndicator new];
-//        self.indicator.frame = self.bounds;
         self.indicator.backgroundColor = [UIColor blueColor];
-        
         [self.contentView addSubview:self.indicator];
     }
     return self;
@@ -40,14 +38,18 @@
 
 - (void)setFrame:(CGRect)frame{
     [super setFrame:frame];
-    self.indicator.frame = CGRectMake(frame.origin.x, 0, frame.size.width,  - frame.origin.y);
+    
+    if(-frame.origin.y <= 36){
+        self.indicator.frame = CGRectMake(frame.origin.x, -frame.origin.y-36, frame.size.width,  36);
+    }else{
+        self.indicator.frame = CGRectMake(frame.origin.x, 0, frame.size.width,  -frame.origin.y);
+    }
+    
 }
 
 - (void)movingDistance:(CGFloat)distance{
-    self.indicator.pullProgress = distance;
-    
-    
-    
+    [super movingDistance:distance];
+    [self.indicator setPullProgress:distance withState:self.controlState];
 }
 
 

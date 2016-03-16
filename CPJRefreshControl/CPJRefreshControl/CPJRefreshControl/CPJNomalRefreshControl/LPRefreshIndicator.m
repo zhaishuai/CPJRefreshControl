@@ -10,6 +10,7 @@
 //  下载链接 https://github.com/SwiftLiu/LPRefresh.git
 
 #import "LPRefreshIndicator.h"
+#import "CPJNomalRefreshControl.h"
 
 ///主题颜色
 #define LPRefreshMainColor(_alpha) [UIColor colorWithWhite:0.7 alpha:_alpha]
@@ -19,7 +20,7 @@
 ///下拉到此偏移量开始拉伸
 const CGFloat LPBeganStretchOffset = 36;
 ///下拉到此偏移量开始刷新
-const CGFloat LPBeganRefreshOffset = 180;
+const CGFloat LPBeganRefreshOffset = 85;
 
 const CGFloat LPRefreshMargin = 3;
 const NSTimeInterval LPRefreshAnimateDuration = 0.5;
@@ -55,6 +56,40 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
 @implementation LPRefreshIndicator
 
 #pragma mark - 设置下拉偏移量
+- (void)setPullProgress:(CGFloat)pullProgress withState:(enum CPJRefreshControlState)state{
+    if (pullProgress == _pullProgress) return;
+    if (!refreshing) {
+        //①开始拖出
+        if (pullProgress <= LPBeganStretchOffset) {
+            if (_pullProgress<=3 && pullProgress>3) {
+                capionLabel.alpha = 0;
+                [self drawHeight:LPBeganStretchOffset];//绘制圆
+            }
+            backing = NO;
+        }
+        //②拉伸阶段
+        else if((state == CPJRefreshControlReleasing || state == CPJRefreshControlPulling) && !backing) {
+            pullProgress = pullProgress <= LPBeganRefreshOffset ? pullProgress : LPBeganRefreshOffset;
+            [self drawHeight:pullProgress];//绘制橡皮筋
+        }
+        //③开始刷新
+        else if (state == CPJRefreshControlConnecting ) {
+            backing = YES;
+            shouldDo = NO;
+            refreshing = YES;
+            [self backAnimate:LPBeganRefreshOffset];//回弹动画
+            if (_refreshBlock) _refreshBlock();//执行刷新代码
+        }
+    }
+    //④刷新状态下回弹需停顿
+    else if (state == CPJRefreshControlReleasing) {
+
+        
+    }
+    _pullProgress = pullProgress;
+    
+}
+
 - (void)setPullProgress:(CGFloat)pullProgress
 {
     if (pullProgress == _pullProgress) return;

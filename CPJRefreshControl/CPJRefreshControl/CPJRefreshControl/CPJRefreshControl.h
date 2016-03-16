@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-enum CPJRefreshControlState{CPJRefreshControlPulling, CPJRefreshControlConnecting, CPJRefreshControlReleasing};
+enum CPJRefreshControlState{CPJRefreshControlStart, CPJRefreshControlPulling, CPJRefreshControlReleasing, CPJRefreshControlConnecting, CPJRefreshControlFinish};
 
 @interface CPJRefreshControl : UIRefreshControl
 
 @property (nonatomic, strong)UIView *contentView;
 
-@property (nonatomic, assign, readonly)enum CPJRefreshControlState controlSate;
+@property (nonatomic, assign, readonly)enum CPJRefreshControlState controlState;
 
 - (void)movingDistance:(CGFloat)distance;
 

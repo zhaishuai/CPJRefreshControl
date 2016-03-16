@@ -19,6 +19,7 @@
 		D9FAEB171C9808FB00142672 /* CPJRefreshControlUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB161C9808FB00142672 /* CPJRefreshControlUITests.m */; };
 		D9FAEB261C980A0C00142672 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB251C980A0C00142672 /* TableViewController.m */; };
 		D9FAEB2A1C980A8900142672 /* CPJRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB291C980A8900142672 /* CPJRefreshControl.m */; };
+		D9FAEB2C1C98FC9900142672 /* LPRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9FAEB2B1C98FC9900142672 /* LPRefresh.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		D9FAEB251C980A0C00142672 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
 		D9FAEB281C980A8900142672 /* CPJRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJRefreshControl.h; sourceTree = "<group>"; };
 		D9FAEB291C980A8900142672 /* CPJRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJRefreshControl.m; sourceTree = "<group>"; };
+		D9FAEB2B1C98FC9900142672 /* LPRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LPRefresh.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		D99D6BAA1C9846F0001F0D3F /* CPJNomalRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
+				D9FAEB2B1C98FC9900142672 /* LPRefresh.bundle */,
 				D99D6BAE1C9849DA001F0D3F /* LPRefreshIndicator.h */,
 				D99D6BAF1C9849DA001F0D3F /* LPRefreshIndicator.m */,
 				D99D6BAB1C9846F0001F0D3F /* CPJNomalRefreshControl.h */,
@@ -280,6 +283,7 @@
 				D9FAEB011C9808FB00142672 /* LaunchScreen.storyboard in Resources */,
 				D9FAEAFE1C9808FB00142672 /* Assets.xcassets in Resources */,
 				D9FAEAF91C9808FB00142672 /* Main.storyboard in Resources */,
+				D9FAEB2C1C98FC9900142672 /* LPRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

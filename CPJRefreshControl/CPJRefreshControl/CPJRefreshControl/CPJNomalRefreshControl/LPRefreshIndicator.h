@@ -10,7 +10,7 @@
 //  下载链接 https://github.com/SwiftLiu/LPRefresh.git
 
 #import <UIKit/UIkit.h>
-
+enum CPJRefreshControlState;
 @interface LPRefreshIndicator : UIView
 
 ///下拉进度
@@ -21,5 +21,7 @@
 
 ///刷新结果
 - (void)refreshSuccess:(BOOL)isSuccess;
+
+- (void)setPullProgress:(CGFloat)pullProgress withState:(enum CPJRefreshControlState)state;
 
 @end
