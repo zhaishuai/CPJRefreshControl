@@ -27,23 +27,25 @@
 
 @implementation CPJNomalRefreshControl
 
-- (instancetype)init{
-    if(self = [super init]){
+- (instancetype)initWithScrollView:(UIScrollView *)scrollView{
+    if(self = [super initWithScrollView:scrollView]){
         self.indicator = [LPRefreshIndicator new];
         self.indicator.backgroundColor = [UIColor blueColor];
-        [self.contentView addSubview:self.indicator];
+        [self addSubview:self.indicator];
+//        self.indicator.frame = CGRectMake(0, 0, 300,  );
     }
     return self;
 }
 
 - (void)setFrame:(CGRect)frame{
-    [super setFrame:frame];
     
+    [super setFrame:frame];
     if(-frame.origin.y <= 36){
         self.indicator.frame = CGRectMake(frame.origin.x, -frame.origin.y-36, frame.size.width,  36);
     }else{
         self.indicator.frame = CGRectMake(frame.origin.x, 0, frame.size.width,  -frame.origin.y);
     }
+    
     
 }
 
@@ -55,9 +57,11 @@
 
 - (void)endRefreshing{
     
-    [self.indicator refreshSuccess:YES];
+    [self.indicator refreshSuccess:YES completion:^(BOOL finished) {
+//        [super endRefreshing];
+    }];
     
-    [super endRefreshing];
+    
 }
 
 @end

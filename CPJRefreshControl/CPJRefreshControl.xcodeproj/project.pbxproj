@@ -20,6 +20,7 @@
 		D9FAEB261C980A0C00142672 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB251C980A0C00142672 /* TableViewController.m */; };
 		D9FAEB2A1C980A8900142672 /* CPJRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB291C980A8900142672 /* CPJRefreshControl.m */; };
 		D9FAEB2C1C98FC9900142672 /* LPRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9FAEB2B1C98FC9900142672 /* LPRefresh.bundle */; };
+		D9FAEB301C9A4F0A00142672 /* CPJFashionRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAEB2F1C9A4F0A00142672 /* CPJFashionRefresh.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		D9FAEB281C980A8900142672 /* CPJRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJRefreshControl.h; sourceTree = "<group>"; };
 		D9FAEB291C980A8900142672 /* CPJRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJRefreshControl.m; sourceTree = "<group>"; };
 		D9FAEB2B1C98FC9900142672 /* LPRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LPRefresh.bundle; sourceTree = "<group>"; };
+		D9FAEB2E1C9A4F0A00142672 /* CPJFashionRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJFashionRefresh.h; sourceTree = "<group>"; };
+		D9FAEB2F1C9A4F0A00142672 /* CPJFashionRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJFashionRefresh.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,10 +174,20 @@
 			isa = PBXGroup;
 			children = (
 				D99D6BAA1C9846F0001F0D3F /* CPJNomalRefreshControl */,
+				D9FAEB2D1C9A42D000142672 /* CPJFashionRefreshControl */,
 				D9FAEB281C980A8900142672 /* CPJRefreshControl.h */,
 				D9FAEB291C980A8900142672 /* CPJRefreshControl.m */,
 			);
 			path = CPJRefreshControl;
+			sourceTree = "<group>";
+		};
+		D9FAEB2D1C9A42D000142672 /* CPJFashionRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				D9FAEB2E1C9A4F0A00142672 /* CPJFashionRefresh.h */,
+				D9FAEB2F1C9A4F0A00142672 /* CPJFashionRefresh.m */,
+			);
+			path = CPJFashionRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +323,7 @@
 			files = (
 				D9FAEAF31C9808FB00142672 /* AppDelegate.m in Sources */,
 				D9FAEAF01C9808FB00142672 /* main.m in Sources */,
+				D9FAEB301C9A4F0A00142672 /* CPJFashionRefresh.m in Sources */,
 				D99D6BB01C9849DA001F0D3F /* LPRefreshIndicator.m in Sources */,
 				D9FAEAFC1C9808FB00142672 /* CPJRefreshControl.xcdatamodeld in Sources */,
 				D9FAEB2A1C980A8900142672 /* CPJRefreshControl.m in Sources */,

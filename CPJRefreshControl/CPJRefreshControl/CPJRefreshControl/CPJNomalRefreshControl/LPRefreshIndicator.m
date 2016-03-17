@@ -68,13 +68,12 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
             backing = NO;
         }
         //②拉伸阶段
-        else if((state == CPJRefreshControlReleasing || state == CPJRefreshControlPulling) && !backing) {
+        else if((state == CPJRefreshControlReleasing || state == CPJRefreshControlPulling)) {
             pullProgress = pullProgress <= LPBeganRefreshOffset ? pullProgress : LPBeganRefreshOffset;
             [self drawHeight:pullProgress];//绘制橡皮筋
         }
         //③开始刷新
         else if (state == CPJRefreshControlConnecting ) {
-            backing = YES;
             shouldDo = NO;
             refreshing = YES;
             [self backAnimate:LPBeganRefreshOffset];//回弹动画
@@ -87,7 +86,6 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
         
     }
     _pullProgress = pullProgress;
-    
 }
 
 - (void)setPullProgress:(CGFloat)pullProgress
@@ -156,7 +154,7 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
 }
 
 #pragma mark - 结束刷新
-- (void)refreshSuccess:(BOOL)isSuccess
+- (void)refreshSuccess:(BOOL)isSuccess completion:(void (^ __nullable)(BOOL finished))completion
 {
     if (refreshing) {
         //正在进行回弹动画时，结束动画放在回弹动画结束后执行
@@ -164,19 +162,19 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
             __weak LPRefreshIndicator *weakSelf = self;
             backCompleteBlock = ^{
                 refreshing = NO;
-                [weakSelf endAnimate:isSuccess];
+                [weakSelf endAnimate:isSuccess completion:completion];
             };
         }
         //未进行回弹动画时，直接执行结束动画
         else {
             refreshing = NO;
-            [self endAnimate:isSuccess];
+            [self endAnimate:isSuccess completion:completion];
         }
     }
 }
 
 #pragma mark - 结束动画
-- (void)endAnimate:(BOOL)isSuccess
+- (void)endAnimate:(BOOL)isSuccess completion:(void (^ __nullable)(BOOL finished))completion
 {
     [indicatorView stopAnimating];
     
@@ -184,9 +182,8 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
     [UIView animateWithDuration:0.8 animations:^{
         capionLabel.alpha = 1;
     } completion:^(BOOL finished) {
-//        if (finished && _pullProgress==LPBeganStretchOffset) {
-//            [self superviewScrollTo:0];//滚动到顶部
-//        }
+        if(completion!=nil)
+            completion(finished);
     }];
 }
 
@@ -316,7 +313,7 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
     CGPoint center = indicatorView.center;
     center.x = width / 2.l;
     indicatorView.center = center;
-    capionLabel.center = center;
+    capionLabel.center = CGPointMake(center.x, center.y + 20);
 }
 
 

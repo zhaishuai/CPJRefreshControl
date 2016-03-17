@@ -10,12 +10,14 @@
 
 enum CPJRefreshControlState{CPJRefreshControlStart, CPJRefreshControlPulling, CPJRefreshControlReleasing, CPJRefreshControlConnecting, CPJRefreshControlFinish};
 
-@interface CPJRefreshControl : UIRefreshControl
+@interface CPJRefreshControl : UIControl
 
 @property (nonatomic, strong)UIView *contentView;
 
 @property (nonatomic, assign, readonly)enum CPJRefreshControlState controlState;
 
 - (void)movingDistance:(CGFloat)distance;
+
+- (instancetype)initWithScrollView:(UIScrollView *)scrollView;
 
 @end

@@ -20,7 +20,7 @@ enum CPJRefreshControlState;
 @property (strong, nonatomic) void (^refreshBlock)();
 
 ///刷新结果
-- (void)refreshSuccess:(BOOL)isSuccess;
+- (void)refreshSuccess:(BOOL)isSuccess completion:(void (^ __nullable)(BOOL finished))completion;
 
 - (void)setPullProgress:(CGFloat)pullProgress withState:(enum CPJRefreshControlState)state;
 

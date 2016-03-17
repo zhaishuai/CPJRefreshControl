@@ -17,10 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIRefreshControl *refresh = [[CPJNomalRefreshControl alloc] init];
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
-    self.refreshControl = refresh;
+    CPJNomalRefreshControl *refresh = [[CPJNomalRefreshControl alloc] initWithScrollView:self.tableView];
+
+
     [refresh addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -32,7 +33,7 @@
 {
     //模拟网络访问
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新中"];
+//    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新中"];
     
     double delayInSeconds = 1.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -41,7 +42,7 @@
         [self.tableView reloadData];
         //刷新结束时刷新控件的设置
         [self.refreshControl endRefreshing];
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+//        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         //        _bottomRefresh.frame = CGRectMake(0, 44+_rowCount*RCellHeight, 320, RCellHeight);
@@ -65,6 +66,12 @@
     return 0;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
+        //refresh logic
+    }
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
