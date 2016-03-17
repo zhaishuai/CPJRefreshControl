@@ -44,7 +44,7 @@
 }
 
 - (void)initializer{
-    self.maxDistance = 125;
+    self.maxDistance = 80;
     
     memset(&stateTransitionMatrix, CPJRefreshControlStart, sizeof(stateTransitionMatrix));
     
@@ -103,22 +103,16 @@
         
         if(-offset > self.maxDistance && !self.scrollView.isDragging){
             _controlState = CPJRefreshControlConnecting;
-            self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance, 0.0f, 0.0f, 0.0f);
-//            self.frame = CGRectMake(self.frame.origin.x, -500, self.frame.size.width, self.maxDistance);
-//            [UIView animateWithDuration:0.3 animations:^{
-//                
-//                //  frame发生偏移,距离顶部150的距离(可自行设定)
-//            
-//            } completion:^(BOOL finished) {
-//                
-//                /**
-//                 *  发起网络请求,请求刷新数据
-//                 */
-//                
-//            }];
-        }else{
+            NSLog(@"ppppppp");
+            self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + 64, 0.0f, 0.0f, 0.0f);
+
+        }else if(self.scrollView.isDragging){
             NSLog(@"dddd");
-            self.frame = CGRectMake(self.frame.origin.x, offset , self.frame.size.width,  -offset);
+            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+        }else if(!self.scrollView.isDragging){
+            self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
+            NSLog(@"kkkkkk:%f",offset);
         }
         
         
@@ -142,16 +136,8 @@
 }
 
 
-- (void)setFrame:(CGRect)frame{
-    
-    NSLog(@"y:%f ,height:%f", frame.origin.y, frame.size.height);
-    [super setFrame:frame];
-    
-}
-
-
 - (void)movingDistance:(CGFloat)distance{
-    NSLog(@"distance:%f  state :%d", distance, self.controlState);
+//    NSLog(@"distance:%f  state :%d", distance, self.controlState);
 }
 
 - (void)beginRefreshing{
