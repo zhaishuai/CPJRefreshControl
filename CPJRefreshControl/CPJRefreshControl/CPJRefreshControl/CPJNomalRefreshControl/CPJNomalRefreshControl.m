@@ -58,7 +58,7 @@
 - (void)endRefreshing{
     
     [self.indicator refreshSuccess:YES completion:^(BOOL finished) {
-//        [super endRefreshing];
+        [super endRefreshing];
     }];
     
     

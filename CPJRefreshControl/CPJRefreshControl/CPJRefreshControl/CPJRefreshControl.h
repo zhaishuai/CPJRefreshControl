@@ -20,4 +20,8 @@ enum CPJRefreshControlState{CPJRefreshControlStart, CPJRefreshControlPulling, CP
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView;
 
+- (void)beginRefreshing;
+
+- (void)endRefreshing;
+
 @end

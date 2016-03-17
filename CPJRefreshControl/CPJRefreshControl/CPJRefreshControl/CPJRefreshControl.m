@@ -92,30 +92,25 @@
     if(object ==self.scrollView && [keyPath isEqualToString:@"contentOffset"]){
         CGFloat oldOffset = [[change objectForKey:@"old"] CGPointValue].y + self.scrollView.contentInset.top;
         CGFloat offset = [[change objectForKey:@"new"] CGPointValue].y + self.scrollView.contentInset.top;
-        if(-offset <= 0 && self.scrollView.contentInset.top == 64){
+        if(-offset <= 0 && self.scrollView.contentInset.top == 64 ){
             self.hidden = YES;
         }else{
             self.hidden = NO;
         }
         
-        
-        
-        
-        if(-offset > self.maxDistance && !self.scrollView.isDragging){
-            _controlState = CPJRefreshControlConnecting;
-            NSLog(@"ppppppp");
-            self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
-            self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + 64, 0.0f, 0.0f, 0.0f);
-
-        }else if(self.scrollView.isDragging){
-            NSLog(@"dddd");
+        if(self.scrollView.isDragging){
             self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
-        }else if(!self.scrollView.isDragging){
-            self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
-            NSLog(@"kkkkkk:%f",offset);
+        }else{
+            if(-offset >= self.maxDistance){
+                self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
+                _controlState = CPJRefreshControlConnecting;
+                self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + 64, 0.0f, 0.0f, 0.0f);
+                [self sendActionsForControlEvents:UIControlEventValueChanged];
+            }else{
+                self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+            }
         }
-        
-        
+
         if(-offset <= START_LIMIT){
             _controlState = stateTransitionMatrix[self.controlState][TO_START];
         }else if(oldOffset - offset > 0 ){
@@ -123,16 +118,11 @@
         }else if(oldOffset - offset < 0 ){
             _controlState = stateTransitionMatrix[self.controlState][RELEASE];
         }
-        
-        
-//        self.contentView.frame = CGRectMake(frame.origin.x, 0, frame.size.width,  - offset);
+
         [self movingDistance:-offset];
         
     }
-    else{
-        //  调用父类的方法
-//        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
+
 }
 
 
@@ -145,9 +135,13 @@
     _controlState = CPJRefreshControlConnecting;
 }
 
-- (void)endRefreshing{                                                                                                           
-//    [super endRefreshing];
+- (void)endRefreshing{
     _controlState = CPJRefreshControlFinish;
+    [UIView animateWithDuration:3 animations:^{
+        self.scrollView.contentInset = UIEdgeInsetsMake(63, 0.0f, 0.0f, 0.0f);
+    } completion:^(BOOL finished) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(64, 0.0f, 0.0f, 0.0f);
+    }];
 }
 
 - (void)dealloc

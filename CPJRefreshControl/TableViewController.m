@@ -9,7 +9,9 @@
 #import "TableViewController.h"
 #import "CPJNomalRefreshControl.h"
 
-@interface TableViewController ()
+@interface TableViewController (){
+    CPJNomalRefreshControl *refresh ;
+}
 
 @end
 
@@ -17,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CPJNomalRefreshControl *refresh = [[CPJNomalRefreshControl alloc] initWithScrollView:self.tableView];
+    refresh = [[CPJNomalRefreshControl alloc] initWithScrollView:self.tableView];
 
 
     [refresh addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
@@ -41,7 +43,7 @@
         //        _rowCount += 5;
         [self.tableView reloadData];
         //刷新结束时刷新控件的设置
-        [self.refreshControl endRefreshing];
+        [refresh endRefreshing];
 //        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
