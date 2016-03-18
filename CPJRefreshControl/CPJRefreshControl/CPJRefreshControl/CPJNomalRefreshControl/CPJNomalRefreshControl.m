@@ -55,9 +55,9 @@
 }
 
 
-- (void)endRefreshing{
+- (void)endRefreshingWithTitle:(NSString *)title{
     
-    [self.indicator refreshSuccess:YES completion:^(BOOL finished) {
+    [self.indicator refreshSuccessWithTitle:title completion:^(BOOL finished) {
         NSLog(@"finish");
         [super endRefreshing];
     }];

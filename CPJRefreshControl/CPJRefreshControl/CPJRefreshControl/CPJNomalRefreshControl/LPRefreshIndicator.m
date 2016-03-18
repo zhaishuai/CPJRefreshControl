@@ -156,7 +156,7 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
 }
 
 #pragma mark - 结束刷新
-- (void)refreshSuccess:(BOOL)isSuccess completion:(void (^ __nullable)(BOOL finished))completion
+- (void)refreshSuccessWithTitle:(NSString *)title completion:(void (^ __nullable)(BOOL finished))completion
 {
     if (refreshing) {
         //正在进行回弹动画时，结束动画放在回弹动画结束后执行
@@ -164,23 +164,23 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
             __weak LPRefreshIndicator *weakSelf = self;
             backCompleteBlock = ^{
                 refreshing = NO;
-                [weakSelf endAnimate:isSuccess completion:completion];
+                [weakSelf endAnimateWithTitle:title completion:completion];
             };
         }
         //未进行回弹动画时，直接执行结束动画
         else {
             refreshing = NO;
-            [self endAnimate:isSuccess completion:completion];
+            [self endAnimateWithTitle:title completion:completion];
         }
     }
 }
 
 #pragma mark - 结束动画
-- (void)endAnimate:(BOOL)isSuccess completion:(void (^ __nullable)(BOOL finished))completion
+- (void)endAnimateWithTitle:(NSString *)title completion:(void (^ __nullable)(BOOL finished))completion
 {
     [indicatorView stopAnimating];
     
-    capionLabel.attributedText = [self endCapion:isSuccess];
+    capionLabel.attributedText = [[NSAttributedString alloc] initWithString:title];
     [UIView animateWithDuration:0.8 animations:^{
         capionLabel.alpha = 1;
     } completion:^(BOOL finished) {

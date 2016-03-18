@@ -19,7 +19,7 @@
 
 @interface CPJRefreshControl (){
     enum CPJRefreshControlState stateTransitionMatrix[5][4];
-    CGRect originFrame;
+    UIEdgeInsets originInsets;
 }
 @property (nonatomic, weak)UIScrollView *scrollView;
 
@@ -72,7 +72,8 @@
     
     
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-
+    [self.scrollView addObserver:self forKeyPath:@"contentInset" options:NSKeyValueObservingOptionNew context:nil];
+    originInsets = self.scrollView.contentInset;
     self.backgroundColor = [UIColor redColor];
 }
 
@@ -83,7 +84,7 @@
     if(object ==self.scrollView && [keyPath isEqualToString:@"contentOffset"]){
         CGFloat oldOffset = [[change objectForKey:@"old"] CGPointValue].y + self.scrollView.contentInset.top;
         CGFloat offset = [[change objectForKey:@"new"] CGPointValue].y + self.scrollView.contentInset.top;
-        if(-offset <= 0 && self.scrollView.contentInset.top == 64 ){
+        if(-offset <= 0 && self.scrollView.contentInset.top == originInsets.top ){
             self.hidden = YES;
         }else{
             self.hidden = NO;
@@ -93,7 +94,6 @@
         if(-offset >= self.maxDistance && !self.scrollView.isDragging && self.controlState != CPJRefreshControlConnecting && self.controlState != CPJRefreshControlFinish){
             _controlState = CPJRefreshControlConnecting;
             [self sendActionsForControlEvents:UIControlEventValueChanged];
-//            self.scrollView.scrollEnabled = NO;
         }
         
         
@@ -108,6 +108,9 @@
         [self changeFrame:offset];
         [self movingDistance:-offset];
         
+    }else if(object ==self.scrollView && [keyPath isEqualToString:@"contentInset"]){
+        if(self.controlState == CPJRefreshControlStart)
+            originInsets = [[change objectForKey:@"new"] UIEdgeInsetsValue];
     }
 
 }
@@ -120,20 +123,20 @@
         }
             break;
         case CPJRefreshControlPulling:{
-            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+originInsets.top, self.frame.size.width,  -offset + self.scrollView.contentInset.top - originInsets.top);
         }
             break;
         case CPJRefreshControlConnecting:{
             self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
-            self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + 64, 0.0f, 0.0f, 0.0f);
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + originInsets.top, 0.0f, 0.0f, 0.0f);
         }
             break;
         case CPJRefreshControlReleasing:{
-            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+originInsets.top, self.frame.size.width,  -offset + self.scrollView.contentInset.top - originInsets.top);
         }
             break;
         case CPJRefreshControlFinish:{
-            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+originInsets.top, self.frame.size.width,  -offset + self.scrollView.contentInset.top - originInsets.top);
         }
             break;
             
@@ -151,9 +154,9 @@
 - (void)endRefreshing{
     _controlState = CPJRefreshControlFinish;
     [UIView animateWithDuration:0.3 animations:^{
-        self.scrollView.contentInset = UIEdgeInsetsMake(63, 0.0f, 0.0f, 0.0f);
+        self.scrollView.contentInset = UIEdgeInsetsMake(originInsets.top - 1, 0.0f, 0.0f, 0.0f);
     } completion:^(BOOL finished) {
-        self.scrollView.contentInset = UIEdgeInsetsMake(64, 0.0f, 0.0f, 0.0f);
+        self.scrollView.contentInset = UIEdgeInsetsMake(originInsets.top, 0.0f, 0.0f, 0.0f);
         _controlState = CPJRefreshControlStart;
     }];
 }
@@ -161,6 +164,7 @@
 - (void)dealloc
 {
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+    [self.scrollView removeObserver:self forKeyPath:@"contentInset"];
     self.scrollView = nil;
 }
 

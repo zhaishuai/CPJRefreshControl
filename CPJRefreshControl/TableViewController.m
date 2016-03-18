@@ -43,7 +43,7 @@
         //        _rowCount += 5;
         [self.tableView reloadData];
         //刷新结束时刷新控件的设置
-        [refresh endRefreshing];
+        [refresh endRefreshingWithTitle:@"刷新成功"];
 //        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

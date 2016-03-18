@@ -16,4 +16,6 @@
 
 @interface CPJNomalRefreshControl : CPJRefreshControl
 
+- (void)endRefreshingWithTitle:(NSString *)title;
+
 @end
