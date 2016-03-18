@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-enum CPJRefreshControlState{CPJRefreshControlStart, CPJRefreshControlPulling, CPJRefreshControlReleasing, CPJRefreshControlConnecting, CPJRefreshControlFinish};
+enum CPJRefreshControlState{CPJRefreshControlStart, CPJRefreshControlPulling, CPJRefreshControlReleasing, CPJRefreshControlConnecting, CPJRefreshControlFinish, CPJRefreshControlIDLE};
 
 @interface CPJRefreshControl : UIControl
 
@@ -20,7 +20,7 @@ enum CPJRefreshControlState{CPJRefreshControlStart, CPJRefreshControlPulling, CP
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView;
 
-- (void)beginRefreshing;
+//- (void)beginRefreshing;
 
 - (void)endRefreshing;
 

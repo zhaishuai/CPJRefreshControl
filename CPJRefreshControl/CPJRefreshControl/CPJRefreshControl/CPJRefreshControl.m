@@ -32,7 +32,7 @@
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView{
     if(self = [super init]){
         
-        self.frame = CGRectMake(0, 0, scrollView.frame.size.width, 0);
+        self.frame = CGRectMake(0, CPJRefreshControlIDLE, scrollView.frame.size.width, 0);
         [scrollView addSubview:self];
         self.scrollView = scrollView;
         [self initializer];
@@ -70,7 +70,7 @@
     stateTransitionMatrix[CPJRefreshControlFinish][CONNECT]      = CPJRefreshControlFinish;
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    [self addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
+//    [self addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
 //    self.contentView = [[UIView alloc] init];
 //    self.contentView.backgroundColor = [UIColor whiteColor];
 //    [self addSubview:self.contentView];
@@ -98,19 +98,13 @@
             self.hidden = NO;
         }
         
-        if(self.scrollView.isDragging){
-            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
-        }else{
-            if(-offset >= self.maxDistance){
-                self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
-                _controlState = CPJRefreshControlConnecting;
-                self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + 64, 0.0f, 0.0f, 0.0f);
-                [self sendActionsForControlEvents:UIControlEventValueChanged];
-            }else{
-                self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
-            }
+        
+        if(-offset >= self.maxDistance && !self.scrollView.isDragging && self.controlState != CPJRefreshControlConnecting){
+            _controlState = CPJRefreshControlConnecting;
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
         }
-
+        
+        
         if(-offset <= START_LIMIT){
             _controlState = stateTransitionMatrix[self.controlState][TO_START];
         }else if(oldOffset - offset > 0 ){
@@ -118,11 +112,44 @@
         }else if(oldOffset - offset < 0 ){
             _controlState = stateTransitionMatrix[self.controlState][RELEASE];
         }
-
+        
+        [self changeFrame:offset];
+        
         [self movingDistance:-offset];
         
     }
 
+}
+
+- (void)changeFrame:(CGFloat)offset{
+    
+    switch (self.controlState) {
+        case CPJRefreshControlStart:{
+
+        }
+            break;
+        case CPJRefreshControlPulling:{
+            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+        }
+            break;
+        case CPJRefreshControlConnecting:{
+            self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + 64, 0.0f, 0.0f, 0.0f);
+        }
+            break;
+        case CPJRefreshControlReleasing:{
+            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+        }
+            break;
+        case CPJRefreshControlFinish:{
+            self.frame = CGRectMake(self.frame.origin.x, offset - self.scrollView.contentInset.top+64, self.frame.size.width,  -offset + self.scrollView.contentInset.top - 64);
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 
@@ -130,10 +157,10 @@
 //    NSLog(@"distance:%f  state :%d", distance, self.controlState);
 }
 
-- (void)beginRefreshing{
-//    [super beginRefreshing];
-    _controlState = CPJRefreshControlConnecting;
-}
+//- (void)beginRefreshing{
+////    [super beginRefreshing];
+//    _controlState = CPJRefreshControlConnecting;
+//}
 
 - (void)endRefreshing{
     _controlState = CPJRefreshControlFinish;

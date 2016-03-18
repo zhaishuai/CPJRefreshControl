@@ -58,6 +58,7 @@
 - (void)endRefreshing{
     
     [self.indicator refreshSuccess:YES completion:^(BOOL finished) {
+        NSLog(@"finish");
         [super endRefreshing];
     }];
     
