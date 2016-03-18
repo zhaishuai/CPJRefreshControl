@@ -16,6 +16,10 @@ enum CPJRefreshControlState{CPJRefreshControlStart, CPJRefreshControlPulling, CP
 
 @property (nonatomic, assign, readonly)enum CPJRefreshControlState controlState;
 
+@property (nonatomic, assign)CGFloat maxDistance;
+
+@property (nonatomic, assign)CGFloat loadingDistance;
+
 - (void)movingDistance:(CGFloat)distance;
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView;

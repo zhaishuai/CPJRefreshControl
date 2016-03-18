@@ -23,7 +23,7 @@
 }
 @property (nonatomic, weak)UIScrollView *scrollView;
 
-@property (nonatomic, assign)CGFloat maxDistance;
+
 
 @end
 
@@ -44,8 +44,8 @@
 }
 
 - (void)initializer{
-    self.maxDistance = 80;
-    
+    self.maxDistance     = 70;
+    self.loadingDistance = self.maxDistance;
     memset(&stateTransitionMatrix, CPJRefreshControlStart, sizeof(stateTransitionMatrix));
     
     stateTransitionMatrix[CPJRefreshControlStart][TO_START]      = CPJRefreshControlStart;
@@ -74,7 +74,8 @@
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     [self.scrollView addObserver:self forKeyPath:@"contentInset" options:NSKeyValueObservingOptionNew context:nil];
     originInsets = self.scrollView.contentInset;
-    self.backgroundColor = [UIColor redColor];
+//    self.backgroundColor = [UIColor redColor];
+    
 }
 
 
@@ -119,7 +120,7 @@
     
     switch (self.controlState) {
         case CPJRefreshControlStart:{
-
+            self.hidden = YES;
         }
             break;
         case CPJRefreshControlPulling:{
@@ -127,8 +128,10 @@
         }
             break;
         case CPJRefreshControlConnecting:{
-            self.frame = CGRectMake(self.frame.origin.x, -self.maxDistance +offset, self.frame.size.width, self.maxDistance-offset);
-            self.scrollView.contentInset = UIEdgeInsetsMake(self.maxDistance + originInsets.top, 0.0f, 0.0f, 0.0f);
+            
+            
+            self.frame = CGRectMake(self.frame.origin.x, -self.loadingDistance +offset, self.frame.size.width, self.loadingDistance-offset);
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.loadingDistance + originInsets.top, 0.0f, 0.0f, 0.0f);
         }
             break;
         case CPJRefreshControlReleasing:{

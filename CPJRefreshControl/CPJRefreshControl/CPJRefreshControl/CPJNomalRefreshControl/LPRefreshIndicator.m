@@ -179,8 +179,9 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
 - (void)endAnimateWithTitle:(NSString *)title completion:(void (^ __nullable)(BOOL finished))completion
 {
     [indicatorView stopAnimating];
-    
+
     capionLabel.attributedText = [[NSAttributedString alloc] initWithString:title];
+    capionLabel.center = self.center;
     [UIView animateWithDuration:0.8 animations:^{
         capionLabel.alpha = 1;
     } completion:^(BOOL finished) {
@@ -318,41 +319,5 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
     capionLabel.center = CGPointMake(center.x, center.y + 20);
 }
 
-
-#pragma mark - 辅助方法
-
-
-//提示文字
-- (NSAttributedString *)endCapion:(BOOL)isSuccess
-{
-    if (isSuccess) {
-        if (!capionSuccess) {
-            capionSuccess = [self attributedString:@"刷新成功"
-                                           imgName:LPRefreshSrcName(@"LPRefresh_ok")];
-        }
-        return capionSuccess;
-    }else {
-        if (!capionFail) {
-            capionFail = [self attributedString:@"刷新失败"
-                                        imgName:LPRefreshSrcName(@"LPRefresh_fail")];
-        }
-        return capionFail;
-    }
-}
-
-- (NSAttributedString *)attributedString:(NSString *)capion imgName:(NSString *)imgName
-{
-    //提示图标
-    NSTextAttachment *attachment = [NSTextAttachment new];
-    attachment.image = [UIImage imageNamed:imgName];
-    CGSize size = attachment.image.size;
-    attachment.bounds = CGRectMake(0, -2.5l, size.width, size.height);
-    NSAttributedString *imgAttrStr = [NSAttributedString attributedStringWithAttachment:attachment];
-    //提示文字
-    NSString *str = [NSString stringWithFormat:@" %@", capion];
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:str];
-    [attrString insertAttributedString:imgAttrStr atIndex:0];
-    return attrString;
-}
 
 @end
