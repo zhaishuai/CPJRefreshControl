@@ -69,11 +69,13 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
         }
         //②拉伸阶段
         else if((state == CPJRefreshControlReleasing || state == CPJRefreshControlPulling)) {
+            capionLabel.alpha = 0;
             pullProgress = pullProgress <= LPBeganRefreshOffset ? pullProgress : LPBeganRefreshOffset;
             [self drawHeight:pullProgress];//绘制橡皮筋
         }
         //③开始刷新
         else if (state == CPJRefreshControlConnecting ) {
+            capionLabel.alpha = 0;
             shouldDo = NO;
             refreshing = YES;
             [self backAnimate:LPBeganRefreshOffset];//回弹动画
@@ -318,16 +320,7 @@ const NSTimeInterval LPRefreshAnimateDuration = 0.5;
 
 
 #pragma mark - 辅助方法
-////滚动
-//- (void)superviewScrollTo:(CGFloat)offsetY
-//{
-//    UIScrollView *scrollView = (UIScrollView *)[self superview];
-//    if (scrollView) {
-//        CGPoint offset = scrollView.contentOffset;
-//        offset.y = offsetY;
-//        [scrollView setContentOffset:offset animated:YES];
-//    }
-//}
+
 
 //提示文字
 - (NSAttributedString *)endCapion:(BOOL)isSuccess

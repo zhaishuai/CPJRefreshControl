@@ -30,9 +30,9 @@
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView{
     if(self = [super initWithScrollView:scrollView]){
         self.indicator = [LPRefreshIndicator new];
-        self.indicator.backgroundColor = [UIColor blueColor];
+
         [self addSubview:self.indicator];
-//        self.indicator.frame = CGRectMake(0, 0, 300,  );
+
     }
     return self;
 }

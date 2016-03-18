@@ -36,7 +36,7 @@
         [scrollView addSubview:self];
         self.scrollView = scrollView;
         [self initializer];
-        self.backgroundColor = [UIColor yellowColor];
+        self.backgroundColor = [UIColor clearColor];
         
         
     }
@@ -64,16 +64,11 @@
     stateTransitionMatrix[CPJRefreshControlConnecting][RELEASE]  = CPJRefreshControlConnecting;
     stateTransitionMatrix[CPJRefreshControlConnecting][CONNECT]  = CPJRefreshControlConnecting;
     
-    stateTransitionMatrix[CPJRefreshControlFinish][TO_START]     = CPJRefreshControlStart;
+    stateTransitionMatrix[CPJRefreshControlFinish][TO_START]     = CPJRefreshControlFinish;
     stateTransitionMatrix[CPJRefreshControlFinish][PULL]         = CPJRefreshControlFinish;
     stateTransitionMatrix[CPJRefreshControlFinish][RELEASE]      = CPJRefreshControlFinish;
     stateTransitionMatrix[CPJRefreshControlFinish][CONNECT]      = CPJRefreshControlFinish;
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    
-//    [self addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
-//    self.contentView = [[UIView alloc] init];
-//    self.contentView.backgroundColor = [UIColor whiteColor];
-//    [self addSubview:self.contentView];
     
     
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
@@ -81,10 +76,6 @@
     self.backgroundColor = [UIColor redColor];
 }
 
-//- (void)setFrame:(CGRect)frame{
-//    originFrame = frame;
-//    [super setFrame:frame];
-//}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -97,11 +88,12 @@
         }else{
             self.hidden = NO;
         }
+
         
-        
-        if(-offset >= self.maxDistance && !self.scrollView.isDragging && self.controlState != CPJRefreshControlConnecting){
+        if(-offset >= self.maxDistance && !self.scrollView.isDragging && self.controlState != CPJRefreshControlConnecting && self.controlState != CPJRefreshControlFinish){
             _controlState = CPJRefreshControlConnecting;
             [self sendActionsForControlEvents:UIControlEventValueChanged];
+//            self.scrollView.scrollEnabled = NO;
         }
         
         
@@ -114,7 +106,6 @@
         }
         
         [self changeFrame:offset];
-        
         [self movingDistance:-offset];
         
     }
@@ -154,20 +145,16 @@
 
 
 - (void)movingDistance:(CGFloat)distance{
-//    NSLog(@"distance:%f  state :%d", distance, self.controlState);
+    NSLog(@"distance:%f  state :%d", distance, self.controlState);
 }
-
-//- (void)beginRefreshing{
-////    [super beginRefreshing];
-//    _controlState = CPJRefreshControlConnecting;
-//}
 
 - (void)endRefreshing{
     _controlState = CPJRefreshControlFinish;
-    [UIView animateWithDuration:3 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         self.scrollView.contentInset = UIEdgeInsetsMake(63, 0.0f, 0.0f, 0.0f);
     } completion:^(BOOL finished) {
         self.scrollView.contentInset = UIEdgeInsetsMake(64, 0.0f, 0.0f, 0.0f);
+        _controlState = CPJRefreshControlStart;
     }];
 }
 
